@@ -1,0 +1,8 @@
+^Rpackage\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^data-raw$
+^docs$
+^_pkgdown\.yml$
+^pkgdown\.yml$
+^\.github$

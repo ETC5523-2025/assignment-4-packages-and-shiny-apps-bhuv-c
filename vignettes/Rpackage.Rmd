@@ -1,0 +1,94 @@
+---
+title: "Rpackage: DALY Dashboard Package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Rpackage}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(Rpackage)
+```
+
+**Overview**
+
+This vignette accompanies the Rpackage created for the unit ETC5523 –
+Communicating with Data (Monash University). It demonstrates how to
+access the built-in dataset Data and how to launch the included
+interactive Shiny dashboard for exploring Disability-Adjusted Life Years
+(DALYs) across major infection types.
+
+**Dataset description**
+
+The Data dataset contains estimates of DALYs per 100,000 population for
+five healthcare-associated infections, reported by two surveillance
+studies:
+
+-    German PPS – Point prevalence survey from Germany.
+
+<!-- -->
+
+-    ECDC PPS – Point prevalence survey across EU/EEA countries.
+
+Each infection type is further split into the DALY components:
+
+-   YLD (Years Lived with Disability)
+
+-   YLL (Years of Life Lost)
+
+Variable Description group Study group (German PPS, ECDC PPS) category
+Infection type (HAP, SSI, BSI, UTI, CDI) component DALY component (YLD,
+YLL) value DALYs per 100,000 population se Standard error for the total
+(used for error bars)
+
+The dataset allows comparison between infections and regions, showing
+how YLD and YLL contribute to the overall burden.
+
+**Example usage**
+
+head(Data)
+
+You can use the data for static analysis in R or open the packaged Shiny
+dashboard to interactively explore it.
+
+**Launching the interactive app**
+
+Run the included Shiny dashboard run_app()
+
+This launches an interactive web application with:
+
+-    Bar charts showing DALYs per infection type, split by YLD and YLL.
+
+-    Error bars representing uncertainty in total DALYs.
+
+-    Tabs for both visualisation and raw data view.
+
+**Source**
+
+The data were adapted from:
+
+Zacher, B., et al. (2019). Application of a new methodology and R
+package reveals a high burden of healthcare-associated infections (HAI)
+in Germany compared to the average in the European Union/European
+Economic Area, 2011 to 2012. Antimicrobial Resistance & Infection
+Control, 8(1), 73.
+<https://cwd.numbat.space/assignments/assignment-2-papers/Zacher2019.pdf>
+
+**Summary**
+
+This package illustrates best practices in:
+
+-   Data documentation using roxygen2
+
+-    Reproducible packaging with usethis
+
+-    Interactive communication via Shiny + bslib

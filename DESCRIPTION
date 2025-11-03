@@ -1,0 +1,35 @@
+Package: Rpackage
+Type: Package
+Title: Infection Burden Analysis
+Version: 0.1.0
+Authors@R: 
+    person(
+      given = "Bhuvana",
+      family = "Chandrashekar",
+      email = "bcha0089@student.monash.edu",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0000-0000-0000")
+    )
+Description: Provides a small dataset ('Data') of DALYs per 100,000 for five
+    infections across two studies (German PPS, ECDC PPS) and an example Shiny
+    app in 'inst/app'. The package supports ETC5523: Communicating with Data.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends:
+    R (>= 3.5)
+Suggests:
+    shiny,
+    bslib,
+    ggplot2,
+    dplyr,
+    tidyr,
+    plotly,
+    DT,
+    patchwork,
+    knitr,
+    rmarkdown,
+    devtools
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+VignetteBuilder: knitr

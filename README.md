@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 90
----
-
 # DALY package
 
 **DALY package** is an interactive **Shiny dashboard** packaged for **ETC5523 –

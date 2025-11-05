@@ -1,8 +1,8 @@
 Package: Rpackage
 Type: Package
-Title: Infection Burden Analysis
+Title: DALY Dashboard: Infection Burden Analysis (ETC5523)
 Version: 0.1.0
-Authors@R: 
+Authors@R:
     person(
       given = "Bhuvana",
       family = "Chandrashekar",
@@ -10,9 +10,12 @@ Authors@R:
       role = c("aut", "cre"),
       comment = c(ORCID = "0000-0000-0000-0000")
     )
-Description: Provides a small dataset ('Data') of DALYs per 100,000 for five
-    infections across two studies (German PPS, ECDC PPS) and an example Shiny
-    app in 'inst/app'. The package supports ETC5523: Communicating with Data.
+Description: Provides a clean, compact dataset ('Data') of Disability-Adjusted
+    Life Years (DALYs) per 100,000 for five healthcare-associated infections
+    (HAP, SSI, BSI, UTI, CDI) across two surveillance studies (German PPS and
+    ECDC PPS). Includes a packaged Shiny app ('inst/app') to explore YLD
+    (Years Lived with Disability) and YLL (Years of Life Lost). Developed for
+    ETC5523: Communicating with Data (Monash University).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
@@ -33,3 +36,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr
+URL: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/,
+    https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c
+BugReports: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c/issues
+Config/Needs/website: pkgdown

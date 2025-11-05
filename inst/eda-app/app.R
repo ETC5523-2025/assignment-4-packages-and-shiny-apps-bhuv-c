@@ -6,8 +6,8 @@ library(ggplot2)
 library(plotly)
 library(DT)
 
-# Load the dataset directly from your package
-data("Data", package = "Rpackage")    # <-- replace Rpackage with your package name
+# Load dataset directly from your package
+data("Data", package = "Rpackage")
 
 # Clean/order for plotting
 Data <- Data |>
@@ -18,7 +18,7 @@ Data <- Data |>
 
 components <- levels(Data$component)
 
-# ===== Theme + small custom CSS (crimson, cardy) =====
+# ===== Theme =====
 crimson_theme <- bs_theme(
   version = 5,
   base_font = font_google("DM Sans"),
@@ -29,24 +29,10 @@ crimson_theme <- bs_theme(
   fg = "#16181d"
 )
 
-extra_css <- HTML("
-  .app-header{
-    background: linear-gradient(135deg, #3a0000, #991b1b);
-    color:#fff; padding: 14px 18px; border-radius: 12px;
-    box-shadow: 0 8px 18px rgba(58,0,0,.25); margin-bottom: 16px;
-  }
-  .app-card{
-    background: #ffffff; border-radius: 14px; padding: 16px 18px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.08); border-top: 4px solid #991b1b;
-  }
-  .accordion-button:not(.collapsed){ color:#991b1b; background:#fff5f5; }
-  .form-check-inline .form-check-input{ margin-top: 6px; }
-")
-
 # ===== UI =====
 ui <- page_fluid(
   theme = crimson_theme,
-  tags$head(tags$style(extra_css)),
+  tags$head(tags$link(rel = "stylesheet", type = "text/css", href = "www/styles.css")),
 
   div(class = "app-header", h4("DALY Dashboard — Infections")),
 
@@ -59,8 +45,10 @@ ui <- page_fluid(
 
         # Left: Plot card
         card(
-          card_header("DALYs per 100,000 by Infection Type",
-                      downloadButton("dl_png", "Download Plot (PNG)", class = "btn btn-sm btn-primary", style = "float:right;")),
+          card_header(
+            "DALYs per 100,000 by Infection Type",
+            downloadButton("dl_png", "Download Plot (PNG)", class = "btn btn-sm btn-primary")
+          ),
           plotlyOutput("p", height = 520)
         ),
 
@@ -93,20 +81,19 @@ ui <- page_fluid(
                 tags$li(tags$b("component:"), " DALY component — ",
                         tags$b("YLD"), " (Years Lived with Disability) or ",
                         tags$b("YLL"), " (Years of Life Lost)."),
-                tags$li(tags$b("value:"), " DALYs per 100,000 population for the component."),
-                tags$li(tags$b("se:"), " uncertainty for the ", tags$b("stacked total"),
-                        " (used to draw error bars when enabled).")
+                tags$li(tags$b("value:"), " DALYs per 100,000 population for each component."),
+                tags$li(tags$b("se:"), " uncertainty for the ",
+                        tags$b("stacked total"), " (used for error bars when enabled).")
               )
             ),
             accordion_panel(
-              "How to read this chart", value = "interpret",
+              "How to interpret the chart", value = "interpret",
               tags$ul(
-                tags$li("Bars are shown ", tags$b("by infection type"),
-                        " and faceted ", tags$b("by study group"), "."),
-                tags$li(tags$b("Stacked"), ": YLD and YLL add to a total height; the error bar shows total ± SE."),
-                tags$li(tags$b("Side-by-side"), ": YLD and YLL appear next to each other; error bars are hidden (SE is for totals)."),
-                tags$li("Compare the ", tags$b("colors"),
-                        " to see burden split (orange = YLD, blue = YLL).")
+                tags$li("Bars are grouped by infection type and faceted by study group."),
+                tags$li(tags$b("Stacked:"), " YLD and YLL add to a total height; error bars show ± SE."),
+                tags$li(tags$b("Side-by-side:"), " YLD and YLL appear next to each other; SE hidden."),
+                tags$li("Color coding: ", tags$b("orange = YLD"), ", ",
+                        tags$b("blue = YLL"), " — compare proportions for burden balance.")
               )
             )
           )
@@ -119,15 +106,17 @@ ui <- page_fluid(
       card(
         card_header("Filtered data"),
         div(class = "app-card",
-            p("This table reflects the current filter selections (Component & Bar mode do not change values).")
+            p("This table reflects current filter selections.")
         ),
         DTOutput("tbl")
       )
     )
-  )
+  ),
+
+  div(class = "footer", "© 2025 Bhuvana Chandrashekar — DALY Dashboard for ETC5523")
 )
 
-# ===== Server =====
+# ===== SERVER =====
 server <- function(input, output, session){
 
   filtered <- reactive({
@@ -137,14 +126,14 @@ server <- function(input, output, session){
   totals <- reactive({
     filtered() |>
       group_by(group, category) |>
-      summarise(total = sum(value), se = dplyr::first(se), .groups = "drop") |>
+      summarise(total = sum(value), se = first(se), .groups = "drop") |>
       mutate(ymin = pmax(0, total - se), ymax = total + se)
   })
 
   base_plot <- reactive({
     df  <- filtered()
     pos <- if (input$position == "stack") "stack" else "dodge"
-    pal <- c(YLD = "#d08b3e", YLL = "#9bc7df")  # warm brown + cool blue
+    pal <- c(YLD = "#d08b3e", YLL = "#9bc7df")
 
     p <- ggplot(df, aes(x = category, y = value, fill = component)) +
       geom_col(position = pos, width = 0.7, color = "grey20") +
@@ -193,4 +182,5 @@ server <- function(input, output, session){
   )
 }
 
+# ===== RUN APP =====
 shinyApp(ui, server)

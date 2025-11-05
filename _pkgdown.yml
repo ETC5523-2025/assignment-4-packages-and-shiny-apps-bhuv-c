@@ -1,0 +1,59 @@
+url: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/
+
+template:
+  bootstrap: 5
+  assets:
+  - inst/extra.css
+  bslib:
+    primary:   "#991b1b"
+    secondary: "#7f1d1d"
+    info:      "#b91c1c"
+    light:     "#fff5f5"
+    dark:      "#3a0000"
+    bg:        "#f9fafb"
+    fg:        "#16181d"
+    base_font:    { google: "DM Sans" }
+    heading_font: { google: "Playfair Display" }
+
+navbar:
+  structure:
+    left:  [home, reference, articles]
+    right: [course, github]
+  components:
+    home:      { text: Home, href: index.html }
+    reference: { text: Reference, href: reference/index.html }
+    articles:  { text: Get started, href: articles/Rpackage.html }
+    github:
+      icon: fab fa-github
+      aria-label: "GitHub repository"
+      href: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c
+
+home:
+  title: "Rpackage"
+  description: >-
+    Interactive Shiny dashboard for ETC5523 visualising DALYs per 100,000 across
+    HAP, SSI, BSI, UTI, CDI; split into YLD and YLL for German PPS and ECDC PPS.
+
+  sidebar:
+    components:
+      links:
+        title: "Links"
+        text: |
+          - [Course site](https://etc5523-2025.github.io/)
+          - [GitHub repository](https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c)
+      license:
+        title: "License"
+        text: "MIT + file LICENSE"
+      citation:
+        title: "Citation"
+        text: "[Citing Rpackage](authors.html#citation)"
+      developers:
+        title: "Developers"
+        text: "Bhuvana Chandrashekar — Author, maintainer"
+    structure: [links, license, citation, developers]
+
+reference:
+  - title: Dataset
+    contents: [Data]
+  - title: App launcher
+    contents: [run_app]

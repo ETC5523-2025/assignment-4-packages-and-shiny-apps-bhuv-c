@@ -2,8 +2,8 @@ pandoc: 3.6.3
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
-  Rpackage: Rpackage.html
-last_built: 2025-11-05T05:02Z
+  DALY: DALY.html
+last_built: 2025-11-05T06:54Z
 urls:
   reference: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/reference
   article: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/articles

@@ -1,8 +1,8 @@
 ---
-title: "Rpackage: DALY Dashboard Package"
+title: "DALY: Infection Burden Dashboard Package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Rpackage}
+  %\VignetteIndexEntry{DALY: Infection Burden Dashboard Package}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -15,35 +15,24 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-
-library(Rpackage)
+library(DALY)
 ```
 
 **Overview**
 
-This vignette accompanies the Rpackage created for the unit ETC5523 –
-Communicating with Data (Monash University). It demonstrates how to
-access the built-in dataset Data and how to launch the included
-interactive Shiny dashboard for exploring Disability-Adjusted Life Years
-(DALYs) across major infection types.
+The DALY package was developed as part of the Monash University unit ETC5523 – Communicating with Data.
+
+It provides a clean dataset of Disability-Adjusted Life Years (DALYs) per 100,000 population for five healthcare-associated infections, as well as a fully packaged interactive Shiny dashboard for exploring the burden of disease across infections and regions.
 
 **Dataset description**
 
-The Data dataset contains estimates of DALYs per 100,000 population for
-five healthcare-associated infections, reported by two surveillance
-studies:
+The dataset Data contains DALY estimates across two surveillance studies:
+	•	German PPS – Point prevalence survey conducted in Germany.
+	•	ECDC PPS (EU/EEA) – European Centre for Disease Prevention and Control survey.
 
--    German PPS – Point prevalence survey from Germany.
-
-<!-- -->
-
--    ECDC PPS – Point prevalence survey across EU/EEA countries.
-
-Each infection type is further split into the DALY components:
-
--   YLD (Years Lived with Disability)
-
--   YLL (Years of Life Lost)
+Each infection is represented by two DALY components:
+	•	YLD (Years Lived with Disability) — the years lived in less than full health.
+	•	YLL (Years of Life Lost) — the years lost due to premature death.
 
 Variable Description group Study group (German PPS, ECDC PPS) category
 Infection type (HAP, SSI, BSI, UTI, CDI) component DALY component (YLD,
@@ -55,14 +44,27 @@ how YLD and YLL contribute to the overall burden.
 
 **Example usage**
 
+```r
+# View the dataset
 head(Data)
+
+# Summarise total DALYs per infection
+library(dplyr)
+Data |>
+  group_by(category) |>
+  summarise(Total_DALY = sum(value), .groups = "drop")
+```
 
 You can use the data for static analysis in R or open the packaged Shiny
 dashboard to interactively explore it.
 
 **Launching the interactive app**
 
-Run the included Shiny dashboard run_app()
+Run the included Shiny dashboard 
+
+```r
+run_app()
+```
 
 This launches an interactive web application with:
 

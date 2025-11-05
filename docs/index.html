@@ -5,16 +5,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Rpackage • Rpackage</title>
+<title>Rpackage • DALY package</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/DM_Sans-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Playfair_Display-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Rpackage">
-<meta name="description" content="Interactive Shiny dashboard for ETC5523 visualising DALYs per 100,000 across HAP, SSI, BSI, UTI, CDI; split into YLD and YLL for German PPS and ECDC PPS.">
-<meta property="og:description" content="Interactive Shiny dashboard for ETC5523 visualising DALYs per 100,000 across HAP, SSI, BSI, UTI, CDI; split into YLD and YLL for German PPS and ECDC PPS.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
+<meta property="og:title" content="Rpackage">
+<meta name="description" content="Interactive Shiny dashboard built for ETC5523 — *Communicating with Data* (Monash University). It visualises **Disability-Adjusted Life Years (DALYs)** per 100,000 population for five healthcare-associated infections (HAP, SSI, BSI, UTI, CDI), split into **YLD** (Years Lived with Disability) and **YLL** (Years of Life Lost), comparing **German PPS** and **ECDC PPS (EU/EEA)** datasets.">
+<meta property="og:description" content="Interactive Shiny dashboard built for ETC5523 — *Communicating with Data* (Monash University). It visualises **Disability-Adjusted Life Years (DALYs)** per 100,000 population for five healthcare-associated infections (HAP, SSI, BSI, UTI, CDI), split into **YLD** (Years Lived with Disability) and **YLL** (Years of Life Lost), comparing **German PPS** and **ECDC PPS (EU/EEA)** datasets.">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -22,7 +23,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">Rpackage</a>
+    <a class="navbar-brand me-2" href="index.html">DALY package</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
@@ -35,10 +36,10 @@
       <ul class="navbar-nav me-auto">
 <li class="active nav-item"><a class="nav-link" href="index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item"><a class="nav-link" href="articles/Rpackage.html">Get started</a></li>
       </ul>
 <ul class="navbar-nav">
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c" aria-label="GitHub repository"><span class="fa fab fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://etc5523-2025.github.io/">Course site</a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c" aria-label="GitHub repository"><span class="fa fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -47,11 +48,10 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="rpackage">Rpackage<a class="anchor" aria-label="anchor" href="#rpackage"></a>
+<div class="page-header"><h1 id="daly-package">DALY package<a class="anchor" aria-label="anchor" href="#daly-package"></a>
 </h1></div>
-<p><strong>Rpackage</strong> is an interactive <strong>Shiny dashboard</strong> packaged for <strong>ETC5523 – Communicating with Data</strong> (Monash University).<br>
+<p><strong>DALY package</strong> is an interactive <strong>Shiny dashboard</strong> packaged for <strong>ETC5523 – Communicating with Data</strong> (Monash University).<br>
 It visualises <strong>Disability-Adjusted Life Years (DALYs) per 100,000</strong> for five healthcare-associated infections, split into <strong>YLD</strong> (Years Lived with Disability) and <strong>YLL</strong> (Years of Life Lost), across two surveillance studies: <strong>German PPS</strong> and <strong>ECDC PPS (EU/EEA)</strong>.</p>
-<hr>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
@@ -61,7 +61,6 @@ It visualises <strong>Disability-Adjusted Life Years (DALYs) per 100,000</strong
 <li>A pkgdown site with consistent styling and documentation.</li>
 <li>Examples of clear data descriptions that align with ETC5523 rubric.</li>
 </ul>
-<hr>
 </div>
 <div class="section level2">
 <h2 id="data-summary">Data summary<a class="anchor" aria-label="anchor" href="#data-summary"></a>
@@ -70,7 +69,7 @@ It visualises <strong>Disability-Adjusted Life Years (DALYs) per 100,000</strong
 <table class="table">
 <colgroup>
 <col width="44%">
-<col width="56%">
+<col width="55%">
 </colgroup>
 <thead><tr>
 <th>Variable</th>
@@ -100,21 +99,58 @@ It visualises <strong>Disability-Adjusted Life Years (DALYs) per 100,000</strong
 </tr>
 </tbody>
 </table>
-<p>Each bar in the dashboard shows YLD + YLL contributions to total burden for each infection type, allowing comparisons across studies and components. | Standard error for the <strong>stacked total</strong> (<code>YLD + YLL</code>), used to draw uncertainty/error bars. |</p>
+<p>Each bar in the dashboard shows YLD + YLL contributions to total burden for each infection type, allowing comparisons across studies and components. Standard error for the <strong>stacked total</strong> (<code>YLD + YLL</code>) is used to draw uncertainty/error bars.</p>
 <p><strong>Notes on interpretation</strong></p>
 <ul>
-<li>In <strong>stacked</strong> bars, the error bar represents uncertainty for the <em>total</em> DALY burden (YLD + YLL).<br>
-</li>
+<li>In <strong>stacked</strong> bars, the error bar represents uncertainty for the <em>total</em> DALY burden (YLD + YLL).</li>
 <li>In <strong>side-by-side</strong> bars, component values (YLD vs YLL) are shown separately and the total-SE bar is hidden.</li>
 </ul>
 <p><strong>Source:</strong><br>
 Zacher, B. <em>et al.</em> (2019). <em>Disease burden of healthcare-associated infections in Germany</em>. Read the paper → <a href="https://cwd.numbat.space/assignments/assignment-2-papers/Zacher2019.pdf" class="external-link uri">https://cwd.numbat.space/assignments/assignment-2-papers/Zacher2019.pdf</a></p>
-<hr>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>```r # install.packages(“devtools”) devtools::install_github(“ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c”)</p>
+<p>You can install the development version from GitHub:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level4">
+<h4 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h4>
+<p>This example demonstrates how to load and explore the DALY dataset in R:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/">DALY</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># View structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">Data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Summarise total DALYs for each infection category</span></span>
+<span><span class="va">Data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">category</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span></span>
+<span>    Total_DALY <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span>,</span>
+<span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="shiny-app">Shiny App<a class="anchor" aria-label="anchor" href="#shiny-app"></a>
+</h2>
+<p>Launch the built-in dashboard interactively:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/">DALY</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/run_app.html">run_app</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Run in console</p>
+<p>The app allows you to:</p>
+<ol style="list-style-type: decimal">
+<li>Filter by DALY component (YLD vs YLL),</li>
+<li>Toggle stacked or side-by-side bar display,</li>
+<li>Display uncertainty/error bars,</li>
+<li>Download plots as PNGs,</li>
+<li>Explore and filter raw data interactively.</li>
+</ol>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

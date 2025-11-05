@@ -1,40 +1,48 @@
 url: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/
+title: DALY package
 
 template:
   bootstrap: 5
   assets:
-  - inst/extra.css
+    - pkgdown/extra.css
   bslib:
     primary:   "#991b1b"
     secondary: "#7f1d1d"
     info:      "#b91c1c"
     light:     "#fff5f5"
     dark:      "#3a0000"
-    bg:        "#f9fafb"
+    bg:        "#ffffff"
     fg:        "#16181d"
+    navbar-bg: "#991b1b"
+    navbar-brand-color: "#ffffff"
     base_font:    { google: "DM Sans" }
     heading_font: { google: "Playfair Display" }
 
 navbar:
   structure:
-    left:  [home, reference, articles]
+    left:  [home, reference]
     right: [course, github]
   components:
     home:      { text: Home, href: index.html }
     reference: { text: Reference, href: reference/index.html }
     articles:  { text: Get started, href: articles/Rpackage.html }
+    course:    { text: Course site, href: https://etc5523-2025.github.io/ }
     github:
-      icon: fab fa-github
+      icon: fa-github
       aria-label: "GitHub repository"
       href: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c
 
 home:
   title: "Rpackage"
   description: >-
-    Interactive Shiny dashboard for ETC5523 visualising DALYs per 100,000 across
-    HAP, SSI, BSI, UTI, CDI; split into YLD and YLL for German PPS and ECDC PPS.
+    Interactive Shiny dashboard built for ETC5523 — *Communicating with Data* (Monash University).
+    It visualises **Disability-Adjusted Life Years (DALYs)** per 100,000 population for
+    five healthcare-associated infections (HAP, SSI, BSI, UTI, CDI), split into
+    **YLD** (Years Lived with Disability) and **YLL** (Years of Life Lost),
+    comparing **German PPS** and **ECDC PPS (EU/EEA)** datasets.
 
   sidebar:
+    structure: [links, license, citation, developers]
     components:
       links:
         title: "Links"
@@ -50,10 +58,9 @@ home:
       developers:
         title: "Developers"
         text: "Bhuvana Chandrashekar — Author, maintainer"
-    structure: [links, license, citation, developers]
 
 reference:
-  - title: Dataset
+  - title: "Dataset"
     contents: [Data]
-  - title: App launcher
+  - title: "App Launcher"
     contents: [run_app]

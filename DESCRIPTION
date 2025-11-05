@@ -1,4 +1,4 @@
-Package: Rpackage
+Package: DALY
 Type: Package
 Title: DALY Dashboard: Infection Burden Analysis (ETC5523)
 Version: 0.1.0
@@ -7,8 +7,7 @@ Authors@R:
       given = "Bhuvana",
       family = "Chandrashekar",
       email = "bcha0089@student.monash.edu",
-      role = c("aut", "cre"),
-      comment = c(ORCID = "0000-0000-0000-0000")
+      role = c("aut", "cre")
     )
 Description: Provides a clean, compact dataset ('Data') of Disability-Adjusted
     Life Years (DALYs) per 100,000 for five healthcare-associated infections
@@ -32,11 +31,9 @@ Suggests:
     knitr,
     rmarkdown,
     devtools
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 VignetteBuilder: knitr
-URL: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/,
-    https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c
+URL: https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-bhuv-c/, https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c
 BugReports: https://github.com/ETC5523-2025/assignment-4-packages-and-shiny-apps-bhuv-c/issues
 Config/Needs/website: pkgdown
